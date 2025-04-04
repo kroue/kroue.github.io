@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #424242;
+            color: #fff;
+        }
+
+        .messaging-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background-color: #424242;
+            border: 1px solid #5e5e5e;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 150vh;
+        }
+
+        .server-status {
+            background-color: #1b1b1b;
+            color: #fff;
+            padding: 3px;
+            font-size: 14px;
+            border-bottom: 1px solid #444;
+            display: flex;
+            align-items: center;
+            /* Aligns the icon and text vertically */
+            gap: 4px;
+            /* Adds spacing between the icon and text */
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            font-weight: light;
+            margin-left: -10px;
+            margin-bottom: -10px;
+            /* Adjusts the left margin for better alignment */
+        }
+
+        .status-icon {
+            width: 8px;
+            /* Adjust the size of the icon */
+            height: 8px;
+            margin-left: 10px;
+        }
+
+        .messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #424242;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            /* Align username and timestamp vertically */
+            gap: 10px;
+            /* Add spacing between username and timestamp */
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .message-content {
+            background-color: #424242;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-left: 30px;
+        }
+
+        .message-content a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .message-content a:hover {
+            text-decoration: underline;
+        }
+
+        .message-divider {
+            border: none;
+            border-top: 1px solid #555;
+            margin: 15px 0;
+        }
+        .message-divider-end {
+            border: none;
+            border-top: 1px solid #ffffff;
+            margin: 15px 0;
+        }
+
+        .message-input {
+        display: flex;
+        align-items: center; /* Align items vertically */
+        padding: 10px;
+        background-color: #424242;
+        border-top: 1px solid #444;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center; /* Align input and plane icon vertically */
+        flex: 1; /* Allow the input container to take up remaining space */
+        gap: 10px; /* Add spacing between the input and the plane icon */
+    }
+
+    .message-input input {
+        flex: 1; /* Allow the input field to take up remaining space */
+        background: none;
+        border: none;
+        color: #9b9b9b;
+        font-size: 14px;
+        padding: 10px;
+        outline: none;
+    }
+
+    .message-input input::placeholder {
+        color: #a09f9f;
+        margin-top: -40px;
+    }
+
+    .input-icons {
+        display: flex;
+        flex-direction: column; /* Stack icons vertically */
+        align-items: center; /* Center icons horizontally */
+        gap: 10px; /* Add spacing between the icons */
+    }
+
+    .input-icons .icon {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            /* Align profile picture and message body vertically */
+            gap: 10px;
+            /* Add spacing between profile picture and message body */
+            margin-bottom: 15px;
+        }
+        .message-2 {
+            display: flex;
+            align-items: center;
+            /* Align profile picture and message body vertically */
+            gap: 10px;
+            /* Add spacing between profile picture and message body */
+            margin-bottom: 500px;
+        }
+
+        .message-content {
+            margin-left: -10px;
+            /* Indent the message content slightly */
+            flex: 1;
+        }
+
+        .input-icons .icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .username {
+            color: #ffcc00;
+            /* Customize username color */
+            margin-left: -10px;
+            font-size: 15px;
+        }
+
+
+        .timestamp {
+            color: #afafaf;
+            /* Subtle color for the timestamp */
+            font-size: 12px;
+            margin-left: -4px;
+        }
+
+        .message-body {
+            display: flex;
+            flex-direction: column;
+            /* Stack username, timestamp, and message content vertically */
+            background-color: #424242;
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1;
+            margin-bottom: 0px;
+            /* Allow the message body to take up remaining space */
+        }
+
+        .profile-picture-2 {
+            width: 40px;
+            /* Adjust the size of the profile picture */
+            height: 40px;
+            border-radius: 50%;
+            /* Make the profile picture circular */
+            flex-shrink: 0;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            /*
+             Prevent the profile picture from shrinking */
+        }
+        .profile-picture-1 {
+            width: 40px;
+            /* Adjust the size of the profile picture */
+            height: 40px;
+            border-radius: 50%;
+            /* Make the profile picture circular */
+            flex-shrink: 0;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            /*
+             Prevent the profile picture from shrinking */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="messaging-container">
+        <div class="server-status">
+            <img src="button.png" alt="Active Status" class="status-icon">
+            <span>Server: Online</span>
+        </div>
+        <hr class="message-divider">
+        <div class="message">
+            <img src="profile-1.png" alt="Profile Picture" class="profile-picture-1">
+            <div class="message-body">
+                <div class="message-header">
+                    <span class="username">annielou</span>
+                    <span class="timestamp">04/04/25 4:15</span>
+                </div>
+                <div class="message-content">
+                    Free Itaku Tier V link just click the link and fill it up<br>
+                    <a href="https://itaku.app/?Free-Itaku-TierV" target="_blank">Itaku.app/?Free-Itaku-TierV...</a>
+                </div>
+            </div>
+        </div>
+        <hr class="message-divider">
+
+        <div class="message-2">
+            <img src="profile-2.png" alt="Profile Picture" class="profile-picture-2">
+            <div class="message-body">
+                <div class="message-header">
+                    <span class="username">sofia23</span>
+                    <span class="timestamp">04/04/25 4:15</span>
+                </div>
+                <div class="message-content">
+                    I just click the link and fill it up but nothing happened can you please help me?
+                </div>
+            </div>
+        </div>
+        <hr class="message-divider">
+        <div class="message-input">
+            <div class="input-container">
+                <input type="text" placeholder="Send a message to annielou (Ctrl + Enter to send)">
+                <div class="input-icons">
+                    <img src="plane-icon.png" alt="Send Icon" class="icon plane-icon">
+                    <img src="emoji-icon.png" alt="Emoji Icon" class="icon emoji-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

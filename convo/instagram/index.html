@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Messaging UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures elements are spaced evenly */
+    padding: 10px 15px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .back-button img {
+    width: 18px;
+    height: 18px;
+  }
+  .profile-picture-header {
+    width: 40px; /* Increase size for better visibility */
+    height: 40px;
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px; /* Add spacing below the picture */
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align the content */
+    text-align: center; /* Center align the text */
+    margin-top: 20px;
+  }
+
+  .profile-picture {
+    width: 300px; /* Increase size for better visibility */
+    height: 300px;
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px; /* Add spacing below the picture */
+  }
+
+  .profile-picture-top {
+    width: 100px !important; /* Increase size for better visibility */
+    height: 100px !important;
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px; /* Add spacing below the picture */
+  }
+
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the text */
+  }
+
+  .profile-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin: 5px 0;
+  }
+
+  .profile-username {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0;
+  }
+
+  .profile-stats,
+  .profile-connections,
+  .profile-mutual {
+    font-size: 12px;
+    color: #888;
+    margin: 3px 0;
+  }
+
+  .header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns the top-icons to the right */
+  }
+
+    .timestamp {
+      text-align: center;
+      font-size: 10px;
+      color: #888;
+      margin-bottom: -30px;
+      font-family: 'Open Sans';
+    }
+
+    .message {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 15px;
+    }
+
+    .message.left {
+      justify-content: flex-start;
+    }
+
+    .message.right {
+      justify-content: flex-end;
+    }
+
+    .message-content-left {
+      background-color: #262626;
+      color: #fff;
+      padding: 10px 15px;
+      margin-left: 35px;
+      border-radius: 18px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      max-width: 70%;
+      word-wrap: break-word;
+      font-size: 13px;
+      position: relative;
+      font-family: 'Open Sans'; /* Ensure Open Sans is applied */
+    }
+
+    .message-content-right {
+      background-color: #3c68eb;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 18px;
+      max-width: 74%;
+      word-wrap: break-word;
+      font-size: 13px;
+      margin-top: -70px;
+      font-family: 'Open Sans'; /* Ensure Open Sans is applied */
+    }
+
+    .link-message {
+      background-color: #262626;
+      color: #9b9b9b;
+      padding-top: 1px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 18px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 71%;
+      word-wrap: break-word;
+      font-size: 10px;
+      text-decoration: none;
+      font-family: 'Open Sans'; /* Ensure Open Sans is applied */
+    }
+
+    .link-message:hover {
+      text-decoration: underline;
+    }
+
+    .profile-picture {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .airplane-icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      background-color: #262626;
+      border-radius: 50%;
+      margin-left: 10px;
+      margin-bottom: 150px;
+    }
+
+    .airplane-icon {
+      width: 15px;
+      height: 15px;
+    }
+
+    .loading-icon {
+      display: block;
+      margin: 10px auto;
+      left: 48.6%;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 20px;
+    }
+
+    .footer span {
+      display: block;
+    }
+
+    .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #262626;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  .chat-input input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    outline: none;
+  }
+
+  .chat-input input::placeholder {
+    color: #888;
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-button:first-child img {
+    width: 24px; /* Slightly larger for the camera icon */
+    height: 24px;
+  }
+    .seen-text {
+    font-size: 10px;
+    color: #888;
+    margin-top: -65px; /* Adjust spacing above */
+    text-align: right;
+    display: block;
+    margin-right: 10px; /* Aligns it with the right message */
+    font-family: 'Open Sans', Arial, sans-serif; /* Ensure Open Sans is applied */
+  }
+  .top-icons {
+    width: 90px; /* Adjust the size of the top-icons image */
+    height: 50px;
+    object-fit: contain;
+    margin-left: auto; /* Pushes the top-icons to the rightmost side */
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <button class="icon-button back-button">
+        <img src="back-icon.png" alt="Back Icon">
+      </button>
+      <img src="profile-icon.png" alt="Profile Picture" class="profile-picture-header">
+      <img src="top-icons.png" alt="Top Icons" class="top-icons">
+    </div>
+    <div class="profile-info">
+            <img src="profile-icon.png" alt="Profile Picture" class="profile-picture-top">
+      <div class="profile-details">
+        <p class="profile-name">Lysandro Puclawan</p>
+        <p class="profile-username">lysaandrooo</p>
+        <p class="profile-stats">349 followers · 0 posts</p>
+        <p class="profile-connections">You follow each other on Instagram</p>
+        <p class="profile-mutual">You both follow yow_naenae and 4 others</p>
+      </div>
+    </div>
+    <div class="view-profile">
+      <button class="view-profile-button">View profile</button>
+    </div>
+
+    <!-- Timestamp -->
+    <div class="timestamp">2:56 AM</div>
+
+    <!-- Messages -->
+    <div class="message left">
+      <div class="message-content-left">
+        Free Meta verified just click the link and fill it up, https://www.instagram.com/<br>Free...MetaVerified/
+      </div>
+    </div>
+
+    <img src="loading.png" alt="Loading Icon" class="loading-icon">
+
+    <div class="message left">
+      <img src="profile-icon.png" alt="Profile Picture" class="profile-picture">
+      <a href="https://www.instagram.com/Free...MetaVerified/" class="link-message">
+        <p style="font-weight: bold; color: #fff; font-family: Arial, Helvetica, sans-serif; letter-spacing: 0.5px;">Instagram</p>
+        https://www.instagram.com/Free...MetaVerified/
+      </a>
+      <div class="airplane-icon-container">
+        <img src="plane-icon.png" alt="Airplane Icon" class="airplane-icon" style="transform: rotate(20deg);">
+      </div>
+    </div>
+
+    <div class="message right">
+      <div class="message-content-right">
+        I just clicked the link but nothing happened. Can you please help me, hey?
+      </div>
+    </div>
+    <span class="seen-text">Seen just now</span>
+
+    <!-- Footer -->
+
+    <!-- Chat Input -->
+    <div class="chat-input">
+      <button class="icon-button">
+        <img src="camera-icon.png" alt="Camera Icon">
+      </button>
+      <input type="text" placeholder="Message...">
+      <button class="icon-button">
+        <img src="microphone-icon.png" alt="Microphone Icon">
+      </button>
+      <button class="icon-button">
+        <img src="image-icon.png" alt="Image Icon">
+      </button>
+      <button class="icon-button">
+        <img src="emoji-icon.png" alt="Emoji Icon">
+      </button>
+      <button class="icon-button">
+        <img src="plus-icon.png" alt="Plus Icon">
+      </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messaging UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Open Sans', Arial, sans-serif; /* Use Open Sans as the primary font */
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 300px;
+    border: 1px solid #333;
+    height: 800px;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .profile h2 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .handle {
+    font-size: 15px;
+    color: #888888;
+    letter-spacing: 0.4px;
+  }
+
+  .bio {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .message.left {
+    align-items: flex-start;
+  }
+
+  .message.right {
+    align-items: flex-end;
+  }
+
+  .message-content-left {
+    background-color: #18181b;
+    padding: 11px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .message-content-left-other {
+    background-color: #18181b;
+    padding: 11px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    width: 60%;
+    word-wrap: break-word;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .message-content-right {
+    background-color: #18181b;
+    padding: 11px;
+    border-radius: 7px;
+    border-bottom-right-radius: 0px;
+    max-width: 60%;
+    word-wrap: break-word;
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding-right: 20px;
+  }
+
+  .message.right .message-content {
+    background-color: #333;
+  }
+
+  .dots {
+    font-size: 20px;
+    color: #888;
+    margin-top: -10px;
+  }
+
+  a {
+    color: #3072e0;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 20px 0;
+    width: 30.8vw; /* Full width of the viewport */
+    position: relative;
+    left: calc(-15.4vw + 50%); /* Center the separator */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="profile-icon.png" alt="Profile">
+      <h2>Nightingale</h2>
+      <p class="handle">@sebastiendesor11</p>
+      <p class="bio">Im a new webtoon artist 💗 rn its just a wip Please don't post my art on other apps Cara and webtoons will be the only place that has my art for now on</p>
+    </div>
+    <hr class="separator">
+    <!-- Messages -->
+    <div class="message left">
+      <div class="message-content-left">
+        Free premium cara coffee link just click the link and fill it up
+      </div>
+      <div class="dots">...</div>
+    </div>
+
+    <div class="message left">
+      <div class="message-content-left-other">
+        <a href="https://l.cara.app/?Free-Premium-CaraCoffee">l.cara.app/?Free-Premium-CaraCoffee+...</a>
+      </div>
+      <div class="dots">...</div>
+    </div>
+
+    <div class="message right">
+      <div class="message-content-right">
+        i just click the link and fill it up but nothing happened can you please help me?
+      </div>
+    </div>
+  </div>
+</body>
+</html>

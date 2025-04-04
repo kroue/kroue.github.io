@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  .chat-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    background-color: #2a2a2a;
+  }
+  
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-info h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .user-info .status {
+    font-size: 14px;
+    color: #4caf50;
+  }
+  
+  .chat-messages {
+    padding: 10px;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .message-content {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .message-content a {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  
+  .message-content a:hover {
+    text-decoration: underline;
+  }
+  
+  .user-message .message-content {
+    background-color: #4caf50;
+    color: #000;
+  }
+  
+  .seen-status {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+  }
+  
+  .chat-footer {
+    padding: 10px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    background-color: #2a2a2a;
+  }
