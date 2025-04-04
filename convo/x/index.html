@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messaging UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Open Sans', Arial, sans-serif; /* Use Open Sans as the primary font */
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 800px;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #070707;
+  }
+
+  .profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .profile h2 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .handle {
+    font-size: 15px;
+    color: #888888;
+    letter-spacing: 0.4px;
+  }
+
+  .bio {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .message.left {
+    align-items: flex-start;
+  }
+
+  .message.right {
+    align-items: flex-end;
+  }
+
+  .message-content-left {
+    background-color: #323639;
+    padding: 11px;
+    border-radius: 20px;
+    border-bottom-left-radius: 5px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+  }
+
+  .message-content-left-other {
+    background-color: #18181b;
+    padding: 11px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    width: 60%;
+    word-wrap: break-word;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .message-content-right {
+    background-color: #1d9bf0;
+    padding: 9px;
+    padding-left: 15px;
+    border-radius: 20px;
+    border-bottom-right-radius: 5px;
+    max-width: 60%;
+    word-wrap: break-word;
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding-right: -100px;
+    margin-right: 10px;
+  }
+
+  .message.right .message-content {
+    background-color: #333;
+  }
+
+  .dots {
+    font-size: 20px;
+    color: #888;
+    margin-top: -10px;
+  }
+
+  a {
+    color: #2f8dc7;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 20px 0;
+    width: 18vw; /* Full width of the viewport */
+    position: relative;
+    left: calc(-9vw + 50%); /* Center the separator */
+  }
+  .separator-2 {
+    border: none;
+    border-top: 1px solid #1f1f1f;
+    margin: 20px 0;
+    width: 20.8vw; /* Full width of the viewport */
+    position: relative;
+    left: calc(-10.4vw + 50%); /* Center the separator */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile" style="display: flex; align-items: center; justify-content: space-between; padding: 10px;">
+      <!-- Back button on the left -->
+      <img src="back.png" alt="Back Button" style="width: 25px; height: 25px; margin-top: -10px;">
+  
+      <!-- Profile icon in the center -->
+      <div style="text-align: center;">
+          <img src="profile-icon.png" alt="Profile Icon" style="width: 35px; height: 35px; border-radius: 50%; margin-bottom: 0px; margin-left: 43px; margin-top: 20px;">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 500; margin-left: 44px; font-weight: bold; font-size: 15px;">Nightingale</h2>
+      </div>
+  
+      <!-- Right image on the right -->
+      <img src="right-img.png" alt="Right Image" style="width: 70px; height: 33px; margin-top: -10px;">
+  </div>
+
+      <!-- Profile Section -->
+      <div class="bio-container" style="text-align: center; font-size: 13px; color: #bebebe; line-height: 1.5; margin: 10px 30px; margin-top: 30px; line-height: 1.1;">
+        <p>Global Content Partnerships at X in December 2023<br>
+        to Present<br>
+        Senior Program Manager - Sales Partnerships / Trust & Safety at Meta in May 2021 to December 2023</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #666; ">Joined December 2018 • 475 Followers</p>
+    </div>
+    <hr class="separator">
+    <div style="text-align: center; margin: 20px 0; color: #bebebe; font-size: 13px;">
+      <p style="margin: 0; font-weight: bold; color: #fff; font-size: 11px;">Today</p>
+  </div>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0;">
+    <span style="flex: 1; height: 0.5px; background-color: #1f1f1f; margin-bottom: 30px; margin-left: 20px;"></span>
+    <p style="margin: 0; font-size: 13px; color: #666; text-align: center; line-height: 1.1; margin-bottom: 30px;">
+        <strong>Did you know?</strong><br>
+        You can quickly add a reaction by double-<br>tapping any message.
+    </p>
+    <span style="flex: 1; height: 1px; background-color: #1f1f1f; margin-bottom: 30px; margin-right: 20px;"></span>
+</div>
+    <!-- Messages -->
+    <div class="message left">
+      <div class="message-content-left">
+          Hey I'm giving free X premium+ just click the link and fill it up<br>
+          <a href="https://twitter.com/?FreeXpremium+" target="_blank" style="text-decoration: underline;">i.twitter.com/?FreeXpremium+...</a>
+      </div>
+      <img src="heart.png" alt="Heart Icon" style="width: 27px; height: 27px; margin-left: auto; margin-right: 95px; margin-top: -30px;">
+      <div class="timestamp" style="font-size: 10px; color: #666; margin-left: 10px; margin-top: 5px;">3:03 AM</div>
+  </div>
+    <div class="message right">
+      <div class="message-content-right">
+        i just click the link and fill it up but nothing happened can you please help me?
+      </div>
+      <div class="timestamp" style="font-size: 10px; color: #666; margin-right: 10px; margin-top: 2px; text-align: right;">3:03 AM • Seen</div>
+</div>
+<hr class="separator-2">
+<div style="display: flex; align-items: center; background-color: #202328; border-radius: 25px; padding: 5px 15px; margin: 10px; margin-top: -10px;">
+  <!-- Plus Icon -->
+  <img src="plus-icon.png" alt="Plus Icon" style="width: 35px; height: 35px; margin-right: 10px;">
+
+  <!-- Input Field -->
+  <input type="text" placeholder="Start a message" style="flex: 1; border: none; outline: none; background: none; color: #fff; font-size: 14px;">
+
+  <!-- Voice Icon -->
+  <img src="voice-icon.png" alt="Voice Icon" style="width: 27px; height: 29px; margin-left: 10px;">
+</div>
+    </div>
+  </div>
+</body>
+</html>
