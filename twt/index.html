@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile View</title>
     <style>
+    @font-face {
+        font-family: 'Chirp';
+        src: url('chirp-regular-web.woff') format('woff'); /* Adjust the path as necessary */
+        font-weight: normal;
+        font-style: normal;
+    }
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Chirp', 'Helvetica Neue', Arial, sans-serif; /* Use Chirp with fallbacks */
         background-color: #f5f8fa;
         margin: 0;
         padding: 0;
@@ -22,33 +28,39 @@
         height: 400px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 0px;
+        position: relative;
     }
-    .profile-header {
+    .profile-header img {
+        width: 100%;
         height: 130px;
-        background-image: url('cover.png'); /* Use cover.png as the background */
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
     }
     .white-space {
-        borsder: #494949 solid 1px;
         background-color: white;
+        margin-top: -10px;
         height: 50px; /* Adjust height as needed */
+        position: relative; /* Ensure it stays in the flow of the document */
+        z-index: 0; /* Ensure it is below the profile picture */
     }
-    .profile-picture {
+    .profile-picture {  
         width: 170px;
         height: 170px;
         border-radius: 50%;
         border: 5px solid white;
-        margin: -150px 0 10px 20px; /* Move to the left with margin-left */
-        display: block;
-        background-image: url('avatar.png'); /* Use avatar.png as the profile picture */
-        background-size: cover;
-        background-position: center;
+        margin: -150px 0 10px 20px; /* Adjust position to overlap the header */
+        position: relative; /* Keep it in the flow of the document */
+        z-index: 1; /* Ensure it appears above the white space */
+        overflow: hidden; /* Ensure the image stays within the circular border */
+    }
+    .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .profile-info {
         display: flex;
         align-items: flex-start;
-        margin: 10px 20px; /* Add spacing between the picture and text */
+        margin: 20px 20px; /* Add spacing between the picture and text */
     }
     .profile-details {
         margin-right: 20px; /* Space between details and warning/description */
@@ -72,7 +84,7 @@
     .warning {
         font-weight: bold;
         font-size: 16px;
-        color: #ffffff;
+        color: #ff0000;
         margin-bottom: 10px;
     }
     .description {
@@ -81,14 +93,15 @@
         color: white;
     }
     .action-button {
-        background-color: #ffffff;
+        background-color: #0ef45a;
+        font-family: 'Chirp';
         color: rgb(0, 0, 0);
         border: none;
         padding: 10px 20px;
         border-radius: 20px;
         cursor: pointer;
         font-size: 14px;
-        margin-top: 20px;
+        font-weight: bold;
         display: block;
         margin-left: 195px; /* Align button to the left */
     }
@@ -99,9 +112,13 @@
 </head>
 <body>
     <div class="profile-container">
-        <div class="profile-header"></div>
-        <div class="white-space"></div> <!-- Added white space -->
-        <div class="profile-picture"></div>
+        <div class="profile-header">
+            <img src="cover.png" alt="Cover Image">
+        </div>
+        <div class="white-space"></div> <!-- White space is now visible -->
+        <div class="profile-picture">
+            <img src="avatar.png" alt="Profile Picture">
+        </div>
         <div class="profile-info">
             <div class="profile-details">
                 <div class="profile-name">Twitter</div>
@@ -110,11 +127,10 @@
             <div class="warning-description">
                 <div class="warning">Caution: This account is temporarily restricted</div>
                 <div class="description">
-                    Upon reviewing the verification process identified an issue related to the transaction ID associated on the user
-                </div>
+                    You're seeing this warning because they may have potentially violated the Twitter Rules. Upon reviewing the verification process identified an issue related to the transaction ID associated on the user                </div>
             </div>
         </div>
-        <button class="action-button">Yes, view profile</button>
+        <button class="action-button">Continue to Validation Program</button>
     </div>
 </body>
 </html>
