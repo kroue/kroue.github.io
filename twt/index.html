@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile View</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f8fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .profile-container {
+        background-color: black;
+        border-radius: 0px;
+        width: 750px;
+        height: 400px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0px;
+    }
+    .profile-header {
+        height: 130px;
+        background-image: url('cover.png'); /* Use cover.png as the background */
+        background-size: cover;
+        background-position: center;
+    }
+    .white-space {
+        borsder: #494949 solid 1px;
+        background-color: white;
+        height: 50px; /* Adjust height as needed */
+    }
+    .profile-picture {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 5px solid white;
+        margin: -150px 0 10px 20px; /* Move to the left with margin-left */
+        display: block;
+        background-image: url('avatar.png'); /* Use avatar.png as the profile picture */
+        background-size: cover;
+        background-position: center;
+    }
+    .profile-info {
+        display: flex;
+        align-items: flex-start;
+        margin: 10px 20px; /* Add spacing between the picture and text */
+    }
+    .profile-details {
+        margin-right: 20px; /* Space between details and warning/description */
+    }
+    .profile-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 5px 0;
+        color: white;
+    }
+    .profile-username {
+        color: white;
+        font-size: 14px;
+        margin: 0;
+    }
+    .warning-description {
+        margin-left: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    .warning {
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-weight: lighter;
+        font-size: 13px;
+        color: white;
+    }
+    .action-button {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 20px;
+        display: block;
+        margin-left: 195px; /* Align button to the left */
+    }
+    .action-button:hover {
+        background-color: #0d95e8;
+    }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header"></div>
+        <div class="white-space"></div> <!-- Added white space -->
+        <div class="profile-picture"></div>
+        <div class="profile-info">
+            <div class="profile-details">
+                <div class="profile-name">Twitter</div>
+                <div class="profile-username">@Twitter</div>
+            </div>
+            <div class="warning-description">
+                <div class="warning">Caution: This account is temporarily restricted</div>
+                <div class="description">
+                    Upon reviewing the verification process identified an issue related to the transaction ID associated on the user
+                </div>
+            </div>
+        </div>
+        <button class="action-button">Yes, view profile</button>
+    </div>
+</body>
+</html>
